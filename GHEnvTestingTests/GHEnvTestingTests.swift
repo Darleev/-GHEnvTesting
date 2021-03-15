@@ -50,7 +50,7 @@ class GHEnvTestingTests: XCTestCase {
             }
         }
         
-        wait(for: [exp], timeout: 5)
+        wait(for: [exp], timeout: 20)
     }
     
     func redraw(image:UIImage, scaledToSize newSize:CGSize) -> UIImage? {
