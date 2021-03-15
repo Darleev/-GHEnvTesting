@@ -5,9 +5,8 @@ on:
     branches: 
       - '*'
       
-  jobs:
-    
-    iOS:
+jobs:
+  Unit-Test:
     name: Test iOS 
     runs-on: macOS-latest
     env: 
