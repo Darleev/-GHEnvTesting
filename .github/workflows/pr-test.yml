@@ -1,7 +1,6 @@
 name: "Test Loads Image"
 on:
-  pull_request:
-    types: [synchronize, opened, reopened, ready_for_review, labeled]
+  push:
     branches:
       - main
       - develop
@@ -14,5 +13,7 @@ jobs:
       DEVELOPER_DIR: /Applications/Xcode_12.4.app/Contents/Developer
     steps:
       - uses: actions/checkout@v2
+      - name: Instance Name
+        run: ls /usr/local/opt/runner/settings/instancename
       - name: Execute test
         run: set -o pipefail && env NSUnbufferedIO=YES xcodebuild clean test -project "GHEnvTesting.xcodeproj" -scheme "GHEnvTesting" -destination "OS=14.4,name=iPhone 12 Pro" | xcpretty
